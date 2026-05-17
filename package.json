@@ -1,0 +1,10 @@
+{
+  "name": "og-portfolio-copy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bishr KV portfolio with JSON-backed admin persistence.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

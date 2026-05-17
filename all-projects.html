@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects — Bishr KV</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/KYr0ftrL/649228621-18059418974390231-5251174486841858004-n-photoaidcom-cropped.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        *{font-family:'Inter',sans-serif;margin:0;padding:0;box-sizing:border-box}
+        body{background:#050505;color:#fff;overflow-x:hidden}
+        ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+        .grid-bg{background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:24px 24px}
+        .nav-glass{background:linear-gradient(180deg,rgba(14,16,26,.8),rgba(14,16,26,.5));border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(16px)}
+        .card{background:rgba(23,23,23,.4);border:1px solid rgba(255,255,255,.06);border-radius:1rem;transition:all .35s ease}
+        .card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+        .btn-outline{background:transparent;color:#fff;font-weight:500;border-radius:.5rem;padding:.9rem 1.4rem;font-size:.95rem;border:1px solid rgba(255,255,255,.15);transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;text-decoration:none}
+        .btn-outline:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.3)}
+        .gradient-text{background:linear-gradient(to right,#fff,#a5a5a5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-blue{background:linear-gradient(135deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .section-label{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#3b82f6;margin-bottom:.75rem;display:inline-flex;align-items:center;gap:.5rem}
+        .section-label::before{content:'';width:20px;height:1px;background:#3b82f6}
+        .tag{display:inline-block;padding:.2rem .6rem;border-radius:9999px;font-size:.65rem;font-weight:500;background:rgba(59,130,246,.1);color:#60a5fa;border:1px solid rgba(59,130,246,.2)}
+        .project-img{width:100%;height:220px;object-fit:cover;border-radius:1rem 1rem 0 0;border-bottom:1px solid rgba(255,255,255,.06)}
+        .project-number{position:absolute;top:1rem;left:1rem;width:32px;height:32px;border-radius:8px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;color:#3b82f6;z-index:2}
+        .project-link{text-decoration:none;color:inherit}
+    </style>
+</head>
+<body class="grid-bg">
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center mt-5 px-4">
+        <div class="nav-glass rounded-full py-2.5 px-5 flex items-center justify-between gap-6 max-w-5xl w-full">
+            <a href="index.html" class="font-bold text-sm tracking-tight whitespace-nowrap gradient-blue">Bishr KV.</a>
+            <a href="index.html" class="btn-outline px-4 py-3" aria-label="Back home" title="Back home"><i data-lucide="arrow-left" class="w-4 h-4"></i></a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-20 px-4">
+        <section class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <div class="section-label justify-center">Portfolio</div>
+                <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-4"><span class="gradient-text">All Projects</span></h1>
+                <p class="text-gray-500 font-light text-sm max-w-2xl mx-auto">A complete view of the work featured in my portfolio.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+                <!-- Projects will be loaded here dynamically from server -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        var DEFAULTS = {
+            projects: [
+                {id:'p1',title:'Wami Clubwears',description:'Awonderful website for a clothing brand.',tech:'React, Tailwind, Node.js',image:'https://i.postimg.cc/tTh517F9/3.png',url:'https://wamiclubwears.vercel.app/',featured:true,date:'2025-01-15'},
+                {id:'p4',title:'Watchlab',description:'Dark portfolio with animations and admin panel.',tech:'HTML, CSS, JS',image:'https://i.postimg.cc/52Y8Y6V8/3.png',url:'https://watchlabstore.vercel.app/',date:'2025-04-05'},
+                {id:'p5',title:'Zochafoodie',description:'Kanban task manager with drag-and-drop.',tech:'React, MongoDB',image:'https://i.postimg.cc/tTh517Fq/2.png',url:'https://zochafoodie.vercel.app/',date:'2025-05-12'},
+                {id:'p6',title:'Juiceio',description:'Real-time weather with 7-day forecast.',tech:'JavaScript, API',image:'https://i.postimg.cc/02ZVd6Ft/1.png',url:'https://juiceio.vercel.app/',date:'2025-06-01'}
+            ]
+        };
+        var projectCache = JSON.parse(JSON.stringify(DEFAULTS.projects));
+
+        function cloneProjects(projects) {
+            return JSON.parse(JSON.stringify(projects || []));
+        }
+
+        function projectSortValue(project) {
+            if (!project) return 0;
+            if (project.createdAt) return project.createdAt;
+            if (project.date) return new Date(project.date).getTime() || 0;
+            return 0;
+        }
+
+        function sortProjects(projects) {
+            return cloneProjects(projects).sort(function(a, b) { return projectSortValue(b) - projectSortValue(a); });
+        }
+
+        function escapeHtml(value) { return String(value == null ? '' : value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+
+        function normalizeProjectImage(input) {
+            var raw = (input || '').trim();
+            if (!raw) return {valid:false, url:'', needsResolve:false};
+            if (!/^https?:\/\//i.test(raw)) raw = 'https://' + raw;
+            try {
+                var u = new URL(raw);
+                var host = u.hostname.toLowerCase();
+                if (host === 'postimg.cc' || host === 'www.postimg.cc') return {valid:true, url:u.href, needsResolve:true};
+                return {valid:true, url:u.href, needsResolve:false};
+            } catch(e) { return {valid:false, url:'', needsResolve:false}; }
+        }
+
+        function getProjectImageFallback(seed) { return 'https://picsum.photos/seed/' + seed + '/600/400.jpg'; }
+
+        function getProjectImageMarkup(rawImage, title, seed, classes, fallbackSuffix) {
+            var image = normalizeProjectImage(rawImage);
+            var fallback = getProjectImageFallback((fallbackSuffix || 'project') + seed);
+            var src = image.valid && !image.needsResolve ? image.url : fallback;
+            return '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(title) + '" class="' + classes + '" data-project-image="' + escapeHtml(image.valid ? image.url : '') + '" data-project-fallback="' + escapeHtml(fallback) + '" loading="lazy">';
+        }
+
+        var projectImageResolutionCache = {};
+
+        function resolvePostimgImage(pageUrl) {
+            if (!pageUrl) return Promise.resolve('');
+            if (projectImageResolutionCache[pageUrl]) return projectImageResolutionCache[pageUrl];
+            projectImageResolutionCache[pageUrl] = fetch(pageUrl, {credentials:'omit'}).then(function(response) { return response.text(); }).then(function(html) {
+                var match = html.match(/https:\/\/i\.postimg\.cc\/[^"]+/i) || html.match(/https:\/\/i\.postimg\.cc\/[^^'"\\s>]+/i);
+                if (!match) return '';
+                return match[0].replace(/&amp;/g, '&').replace(/\?dl=1$/i, '');
+            }).catch(function() { return ''; });
+            return projectImageResolutionCache[pageUrl];
+        }
+
+        function hydrateProjectImages(root) {
+            var scope = root || document;
+            var images = scope.querySelectorAll('img[data-project-image]');
+            images.forEach(function(img) {
+                var imageUrl = img.getAttribute('data-project-image');
+                var fallback = img.getAttribute('data-project-fallback');
+                if (!imageUrl) return;
+                if (imageUrl.indexOf('postimg.cc/') > -1 && imageUrl.indexOf('i.postimg.cc') === -1) {
+                    // Postimg share page — try to resolve but fallback is ok
+                    resolvePostimgImage(imageUrl).then(function(resolved) {
+                        if (resolved && resolved.length > 0) {
+                            img.src = resolved;
+                            img.style.opacity = '1';
+                        } else if (fallback) {
+                            img.src = fallback;
+                        }
+                    }).catch(function() {
+                        if (fallback) img.src = fallback;
+                    });
+                } else if (imageUrl && imageUrl.length > 0) {
+                    // Direct image URL — use it
+                    img.src = imageUrl;
+                    img.style.opacity = '1';
+                }
+            });
+        }
+
+        function seedProjectDefaults() {
+            return DEFAULTS.projects.map(function(project, index) {
+                return Object.assign({}, project, {
+                    createdAt: new Date(project.date || Date.now()).getTime() || (Date.now() - index)
+                });
+            });
+        }
+
+        function readProjectsStore() {
+            return fetch('/api/site-data', { cache: 'no-store' }).then(function(res) {
+                if (!res.ok) throw new Error('Failed to load site data');
+                return res.json();
+            }).then(function(data) {
+                if (data && Array.isArray(data.projects) && data.projects.length) {
+                    return sortProjects(data.projects);
+                }
+                return sortProjects(DEFAULTS.projects);
+            });
+        }
+
+        function renderProjects() {
+            var projects = sortProjects(projectCache);
+            var container = document.getElementById('projectsGrid');
+            
+            if (!projects || projects.length === 0) {
+                container.innerHTML = '<p class="col-span-full text-center text-gray-500">No projects yet.</p>';
+                return;
+            }
+
+            container.innerHTML = projects.map(function(p, index) {
+                var number = String(index + 1).padStart(2, '0');
+                return '<a href="' + (p.url || '#') + '" target="_blank" rel="noopener noreferrer" class="project-link card overflow-hidden group">'
+                    + '<div class="relative overflow-hidden">'
+                    + '<span class="project-number">' + number + '</span>'
+                    + getProjectImageMarkup(p.image, p.title, number, 'project-img transition-transform duration-700 group-hover:scale-110', 'default')
+                    + '</div>'
+                    + '<div class="p-5">'
+                    + '<div class="flex items-center justify-between gap-2 mb-2"><h3 class="text-sm font-medium">' + p.title + '</h3><i data-lucide="external-link" class="w-4 h-4 text-blue-400 opacity-40 group-hover:opacity-100 transition-opacity"></i></div>'
+                    + '<p class="text-xs text-gray-500 font-light leading-relaxed mb-3">' + p.description + '</p>'
+                    + '<div class="flex flex-wrap gap-1.5">' + (p.tech ? p.tech.split(',').map(function(t) { return '<span class="tag">' + t.trim() + '</span>'; }).join('') : '') + '</div>'
+                    + '</div>'
+                    + '</a>';
+            }).join('');
+
+            lucide.createIcons();
+            hydrateProjectImages(container);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            readProjectsStore().then(function(projects) {
+                projectCache = cloneProjects(projects.length ? projects : seedProjectDefaults());
+                renderProjects();
+                lucide.createIcons();
+            }).catch(function() {
+                projectCache = cloneProjects(seedProjectDefaults());
+                renderProjects();
+                lucide.createIcons();
+            });
+        });
+        lucide.createIcons();
+    </script>
+</body>
+</html>
